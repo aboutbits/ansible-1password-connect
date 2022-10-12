@@ -11,7 +11,7 @@
     dest: /var/docker/op-connect/docker-compose.yml
     mode: 0640
 
-- name: Create Atlantis env variables file
+- name: Create 1Password credentials file env variables file
   ansible.builtin.template:
     src: "{{ 1password_credentials_file }}"
     dest: /var/docker/op-connect/1password-credentials.json
