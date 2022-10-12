@@ -1,2 +1,3 @@
 ---
 1password_credentials_file: 1password-credentials.j2
+server_port: 8080
