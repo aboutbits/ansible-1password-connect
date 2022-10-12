@@ -17,7 +17,7 @@
     dest: /var/docker/op-connect/1password-credentials.json
     mode: 0640
 
-- name: Start the 1Password Connect API and Sync Docker containers
+- name: Start the 1Password Connect containers
   community.docker.docker_compose:
     project_src: /var/docker/op-connect
     state: present
