@@ -8,7 +8,7 @@ A role to install and configure 1Password Connect.
 
 ## Role Variables
 
-- `server_port`: Port of the 1Password Connect API container (Optional). 
+- `server_port`: 1Password Connect API server port (Optional). 
 - `credentials_file`: The name of the 1Password credentials file template file (Optional). This file is used to authenticate with 1Password.
 
 ## Example Playbook
