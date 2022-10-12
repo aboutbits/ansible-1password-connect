@@ -1,0 +1,24 @@
+---
+- name: Create /var/docker/op-connect directory
+  ansible.builtin.file:
+    dest: /var/docker/op-connect
+    state: directory
+    mode: 0755
+
+- name: Copy Docker Compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /var/docker/op-connect/docker-compose.yml
+    mode: 0640
+
+- name: Create Atlantis env variables file
+  ansible.builtin.template:
+    src: "{{ 1password_credentials_file }}"
+    dest: /var/docker/op-connect/1password-credentials.json
+    mode: 0640
+
+- name: Start the 1Password Connect API and Sync Docker containers
+  community.docker.docker_compose:
+    project_src: /var/docker/op-connect
+    state: present
+    pull: yes
