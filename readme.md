@@ -8,7 +8,8 @@ A role to install and configure 1Password Connect.
 
 ## Role Variables
 
-- `1password_credentials_file`: The name of the 1Password credentials file template file (Optional). This file is used to authenticate with 1Password.
+- `server_port`: Port of the 1Password Connect API container (Optional). 
+- `credentials_file`: The name of the 1Password credentials file template file (Optional). This file is used to authenticate with 1Password.
 
 ## Example Playbook
 
@@ -18,7 +19,8 @@ A role to install and configure 1Password Connect.
     - ansible.builtin.include_role:
         name: ansible-1password-connect
       vars:
-        1password_credentials_file: 1password_credentials.j2
+        server_port: 8080
+        credentials_file: 1password_credentials.j2
 ```
 
 ## Versioning
