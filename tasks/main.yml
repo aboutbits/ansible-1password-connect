@@ -1,24 +1,24 @@
 ---
 - name: Create /var/docker/op-connect directory
   ansible.builtin.file:
-    dest: /var/docker/op-connect
+    dest: /var/docker/1password-connect
     state: directory
     mode: 0755
 
 - name: Copy Docker Compose file
   ansible.builtin.template:
     src: docker-compose.j2
-    dest: /var/docker/op-connect/docker-compose.yml
+    dest: /var/docker/1password-connect/docker-compose.yml
     mode: 0640
 
 - name: Create 1Password credentials file env variables file
   ansible.builtin.template:
     src: "{{ credentials_file }}"
-    dest: /var/docker/op-connect/1password-credentials.json
-    mode: 0640
+    dest: /var/docker/1password-connect/1password-credentials.json
+    mode: 0644
 
 - name: Start the 1Password Connect containers
   community.docker.docker_compose:
-    project_src: /var/docker/op-connect
+    project_src: /var/docker/1password-connect
     state: present
     pull: yes
