@@ -8,11 +8,13 @@ services:
     volumes:
       - "./1password-credentials.json:/home/opuser/.op/1password-credentials.json"
       - "data:/home/opuser/.op/data"
+    restart: unless-stopped
   op-connect-sync:
     image: 1password/connect-sync:latest
     volumes:
       - "./1password-credentials.json:/home/opuser/.op/1password-credentials.json"
       - "data:/home/opuser/.op/data"
+    restart: unless-stopped
 
 volumes:
   data:
