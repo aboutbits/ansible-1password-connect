@@ -18,8 +18,8 @@
     mode: 0644
 
 - name: Start the 1Password Connect containers
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     project_src: /var/docker/1password-connect
     state: present
-    restarted: yes
+    recreate: yes
     pull: yes
