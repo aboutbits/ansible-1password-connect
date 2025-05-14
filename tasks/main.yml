@@ -13,7 +13,7 @@
 
 - name: Create 1Password credentials file env variables file
   ansible.builtin.template:
-    src: "{{ 1password_credentials_file }}"
+    src: "{{ onepassword_credentials_file }}"
     dest: /var/docker/1password-connect/1password-credentials.json
     mode: 0644
 

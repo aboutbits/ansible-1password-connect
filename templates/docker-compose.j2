@@ -3,7 +3,7 @@ services:
     image: 1password/connect-api:latest
     restart: unless-stopped
     ports:
-      - "{{ 1password_server_port }}:8080"
+      - "{{ onepassword_server_port }}:8080"
     volumes:
       - "./1password-credentials.json:/home/opuser/.op/1password-credentials.json"
       - "1password:/home/opuser/.op/data"
