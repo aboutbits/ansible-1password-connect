@@ -1,20 +1,19 @@
-version: "3.4"
-
 services:
   op-connect-api:
     image: 1password/connect-api:latest
+    restart: unless-stopped
     ports:
-      - "{{ server_port }}:8080"
+      - "{{ 1password_server_port }}:8080"
     volumes:
       - "./1password-credentials.json:/home/opuser/.op/1password-credentials.json"
-      - "data:/home/opuser/.op/data"
-    restart: unless-stopped
+      - "1password:/home/opuser/.op/data"
   op-connect-sync:
     image: 1password/connect-sync:latest
+    restart: unless-stopped
     volumes:
       - "./1password-credentials.json:/home/opuser/.op/1password-credentials.json"
-      - "data:/home/opuser/.op/data"
-    restart: unless-stopped
+      - "1password:/home/opuser/.op/data"
 
 volumes:
-  data:
+  1password:
+    driver: local
