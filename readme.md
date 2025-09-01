@@ -23,22 +23,6 @@ A role to install and configure 1Password Connect.
         onepassword_credentials_file: 1password_credentials.j2
 ```
 
-## Versioning
+## Build & Publish
 
-In order to have a versioning in place and working, create lightweight tags that point to the appropriate minor release versions.
-
-Creating a new minor release:
-
-```bash
-git tag v2
-git push --tags
-```
-
-Replacing an already existing minor release:
-
-```bash
-git tag -d v2
-git push origin :refs/tags/v2
-git tag v2
-git push --tags
-```
+To build and publish the role, visit the GitHub Actions page of the repository and trigger the workflow "Release Package" manually.
